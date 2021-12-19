@@ -32,19 +32,19 @@ public class DashboardFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_dashboard, container, false);
         return v;
-//        spm = new SharedPrefManager(this);
-//        GlobalToken = spm.getSPStrings("spToken", "DEFAULT");
-//        SharedPreferences preferences = this.getActivity().getSharedPreferences("spToken", Context.MODE_PRIVATE);
-//        String api_url = getString(R.string.api_server);
-        //webview
-//        View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        spm = new SharedPrefManager(this);
+        GlobalToken = spm.getSPStrings("spToken", "DEFAULT");
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("spToken", Context.MODE_PRIVATE);
+        String api_url = getString(R.string.api_server);
+        webview
+        View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-//        String url = "http://winn-brown.co.uk/";
-//        WebView view = (WebView) rootView.findViewById(R.id.WebVDashboard);
-//        view.loadUrl(url);
-//        view.getSettings().setJavaScriptEnabled(true);
-//        view.setWebViewClient(new MyWebViewClient());
-//        view.setWebChromeClient(new MyWebChromeClient());
+        String url = "http://winn-brown.co.uk/";
+        WebView view = (WebView) rootView.findViewById(R.id.WebVDashboard);
+        view.loadUrl(url);
+        view.getSettings().setJavaScriptEnabled(true);
+        view.setWebViewClient(new MyWebViewClient());
+        view.setWebChromeClient(new MyWebChromeClient());
     }
 
     private class MyWebViewClient extends WebViewClient {
