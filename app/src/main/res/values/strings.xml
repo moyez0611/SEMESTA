@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SEMESTA</string>
+    <string name="dhasboard">dhasboard</string>
+    <string name="ajuan">ajuan</string>
+    <string name="alat">alat</string>
+    <string name="isisdentil">isisdentil</string>
+    <string name="penempatan">penempatan</string>
+    <string name="profile">profile</string>
+    <string name="api_server">http://jasatirta.icass.tech/</string>
+    <string name="pengguna">pengguna</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
+    <string name="copyright_2021_kadiv_dja_i">copyright_2021_kadiv_dja_i</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

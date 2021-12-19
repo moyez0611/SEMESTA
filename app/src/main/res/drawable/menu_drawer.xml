@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/item_dashboard"
+            android:icon="@drawable/dashboard"
+            android:title="Dashboard"
+            />
+
+        <item
+            android:id="@+id/item_ajuan"
+            android:icon="@drawable/edit_note"
+            android:title="Draft Ajuan"
+           />
+         <item
+            android:id="@+id/item_penempatan"
+            android:icon="@drawable/map"
+            android:title="Penempatan"
+            />
+
+        <item
+            android:id="@+id/item_isidentil"
+            android:icon="@drawable/watch_later"
+            android:title="Isidentil"
+            />
+        <item
+            android:id="@+id/item_alat"
+            android:icon="@drawable/electric_car"
+            android:title="Alat/Kendaraan"
+            />
+<!--        <item-->
+<!--            android:id="@+id/item_profile"-->
+<!--            android:icon="@drawable/account_box"-->
+<!--            android:title="Profil"-->
+<!--            />-->
+
+</menu>
