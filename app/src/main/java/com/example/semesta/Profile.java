@@ -7,15 +7,31 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+import java.util.Objects;
 
 public class Profile extends BaseActivity {
 
     SharedPrefManager spm;
+    WebView webView;
+    WebSettings webSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true); //for back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//for back button
+
+        //webview
+        webView = findViewById(R.id.webVIewProfile);
+        webSetting = webView.getSettings();
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://jasatirta.icass.tech/mobilebackend/profile");
     }
 
     @Override
@@ -32,28 +48,35 @@ public class Profile extends BaseActivity {
 
     }
 
-    private void logout(){
-        spm.saveSPString(SharedPrefManager.SP_TOKEN, "");
-        spm.saveSPString(SharedPrefManager.SP_UNAME, "");
-        spm.saveSPString(SharedPrefManager.SP_GID, "");
-        spm.saveSPString(SharedPrefManager.SP_UID, "");
-        spm.saveSPString(SharedPrefManager.SP_EID, "");
-        spm.saveSPString(SharedPrefManager.SP_AVATAR, "");
-
-        Intent loginscreen=new Intent(this,LoginActivity.class);
-        loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(loginscreen);
-        finish();
-
-
-    }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.home) {
+            return true;
+        } else if (id == android.R.id.home) {
+            this.finish();
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void clickLogout(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.logout: {
-                logout();
+                spm.saveSPString(SharedPrefManager.SP_TOKEN, "");
+                spm.saveSPString(SharedPrefManager.SP_UNAME, "");
+                spm.saveSPString(SharedPrefManager.SP_GID, "");
+                spm.saveSPString(SharedPrefManager.SP_UID, "");
+                spm.saveSPString(SharedPrefManager.SP_EID, "");
+                spm.saveSPString(SharedPrefManager.SP_AVATAR, "");
+
+                startActivity(new Intent(Profile.this, LoginActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
             }
         }
-        return true;
     }
 }

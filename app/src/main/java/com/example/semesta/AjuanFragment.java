@@ -25,5 +25,9 @@ public class AjuanFragment extends Fragment {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        WebView webView = (WebView)v.findViewById(R.id.WebVDashboard);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://jasatirta.icass.tech/mobilebackend/draft");
         return v;    }
 }
